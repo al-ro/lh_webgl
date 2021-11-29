@@ -9,7 +9,7 @@ Live version (not this repo): https://al-ro.github.io/projects/loophole/
 
 ### How to run:
 
-This project requires no building but does need to be located on a server because of CORS/modules. 
+This project requires no building but does need to be located on a server because of CORS/modules. An active internet connection is needed to fetch dat.gui .
 
 ### TODO:
 - [ ] Replace star field with particle rendering
