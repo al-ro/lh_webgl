@@ -10,63 +10,12 @@ function getDefinePrefix(parameters, material){
       prefix += "#define INSTANCED \n";
     }
 
-    if(parameters.hasOwnProperty("normals") && parameters.normals){
-      prefix += "#define HAS_NORMALS \n";
-    }
-
     if(parameters.hasOwnProperty("uvs") && parameters.uvs){
       prefix += "#define HAS_UVS \n";
-    }
-
-    if(parameters.hasOwnProperty("tangents") && parameters.tangents){
-      prefix += "#define HAS_TANGENTS \n";
-    }
-
-    if(material.hasAlbedoTexture){
-      prefix += "#define HAS_ALBEDO_TEXTURE \n";
-    }
-
-    if(material.hasNormalTexture){
-      prefix += "#define HAS_NORMAL_TEXTURE \n";
-    }
-
-    if(material.hasEmissiveTexture){
-      prefix += "#define HAS_EMISSIVE_TEXTURE \n";
-    }
-
-    if(material.hasPropertiesTexture){
-      prefix += "#define HAS_PROPERTIES_TEXTURE \n";
-    }
-    if(material.hasAO){
-      if(material.hasAOTexture){
-        prefix += "#define HAS_AO_TEXTURE \n";
-      }else{
-        prefix += "#define AO_IN_PROPERTIES_TEXTURE \n";
-      }
     }
   }
 
   return prefix;
-
-}
-
-function getNormalTransform(parameters){
-
-  let normalTransform = `
-    vec4 transformedNormal = normalMatrix * vec4(vertexNormal, 0.0);
-  `
-  return normalTransform;
-
-}
-
-function getPositionTransform(parameters){
-
-  let positionTransform = `
-    vec4 pos = modelMatrix * vec4(position, 1.0);
-  `;
-
-  return positionTransform;
-
 }
 
 function compileShader(shaderSource, shaderType){
@@ -82,4 +31,4 @@ function compileShader(shaderSource, shaderType){
   return shader;
 }
 
-export {compileShader, getDefinePrefix, getNormalTransform, getPositionTransform}
+export {compileShader, getDefinePrefix}

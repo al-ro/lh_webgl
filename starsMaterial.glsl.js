@@ -42,18 +42,16 @@ function getFragmentSource(){
     float e = 0.14;
     return clamp((x*(a*x+b))/(x*(c*x+d)+e), 0.0, 1.0);
   }
+ 
+  float random(vec2 par){
+     return fract(sin(dot(par.xy,vec2(12.9898,78.233))) * 43758.5453);
+  }
+  
+  vec2 random2(vec2 par){
+    float rand = random(par);
+    return vec2(rand, random(par+rand));
+  }
 
-//Based on https://www.youtube.com/watch?v=3CycKKJiwis
-
-float random(vec2 par){
-   return fract(sin(dot(par.xy,vec2(12.9898,78.233))) * 43758.5453);
-}
-
-vec2 random2(vec2 par){
-	float rand = random(par);
-	return vec2(rand, random(par+rand));
-}
-    
   void main(){
 
     vec2 uv = vUV;
