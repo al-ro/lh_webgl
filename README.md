@@ -2,6 +2,8 @@
 
 Iterative prototype shader for Loophole project. Current state is temporary until final visuals are agreed.
 
+Live version (not this repo): https://al-ro.github.io/projects/loophole/
+
 ![Screenshot](screenshot.png)
 
 ### TODO:
